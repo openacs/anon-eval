@@ -17,6 +17,12 @@ db_1row find_assessment {}
 # Get the assessment data
 as::assessment::data -assessment_id $assessment_id
 permission::require_permission -object_id $assessment_id -privilege read
+set admin_p [permission::permission_p -privilege admin -object_id [ad_conn package_id]]
+
+if { $admin_p } {
+    ad_return_complaint 1 "[_ anon-eval.permission_denied]"
+    ad_script_abort
+}
 
 if {![info exists assessment_data(assessment_id)]} {
     ad_return_complaint 1 "[_ assessment.Requested_assess_does]"

@@ -18,6 +18,13 @@ set p_title ""
 
 permission::require_permission -object_id $package_id -privilege create
 permission::require_permission -object_id $assessment_id -privilege admin
+set dotlrn_admin_p [dotlrn::admin_p]
+
+if { !$dotlrn_admin_p } {
+    ad_return_complaint 1 "[_ anon-eval.admin_permission_denied]"
+    ad_script_abort
+}
+
 set admin_p [acs_user::site_wide_admin_p]
 # Get the assessment data
 as::assessment::data -assessment_id $assessment_id

@@ -18,7 +18,6 @@ ad_page_contract {
     context_bar:onevalue
     page_title:onevalue
 }
-
 set user_id [ad_conn user_id]
 set page_title "[_ assessment.Show_Items]"
 set context [list $page_title]
@@ -36,7 +35,12 @@ set return_url "$url"
 
 # Get the assessment data
 as::assessment::data -assessment_id $assessment_id
-permission::require_permission -object_id $assessment_id -privilege read
+set admin_p [permission::permission_p -privilege admin -object_id [ad_conn package_id]]
+
+if { $admin_p } {
+    ad_return_complaint 1 "[_ anon-eval.admin_message]"
+    ad_script_abort
+}
 
 if {![info exists assessment_data(assessment_id)]} {
     ad_return_complaint 1 "[_ assessment.Requested_assess_does]"
@@ -55,7 +59,6 @@ if {[empty_string_p $session_id]} {
 
 db_transaction {
     if {[empty_string_p $session_id]} {
-	
 	# Check if there is an unfinished session lying around
 	set session_id [db_string unfinished_session_id {}]
 	if {[empty_string_p $session_id]} {

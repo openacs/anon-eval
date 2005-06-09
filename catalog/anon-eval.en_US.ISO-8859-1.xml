@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="anon-eval" package_version="0.1a" locale="en_US" charset="ISO-8859-1">
 
+  <msg key="admin_message">You are not able to submit a respose for this evaluation.</msg>
+  <msg key="admin_permission_denied">You don't have permission to admin Course Evaluations.</msg>
   <msg key="Anon_Eval">Course Evaluations</msg>
   <msg key="Anon_Eval_Administration">Course Evaluations Administration</msg>
   <msg key="Applet">Anonymous Course Evaluations</msg>
+  <msg key="permission_denied">You don't have permission to see the results.</msg>
 </message_catalog>

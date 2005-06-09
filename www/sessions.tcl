@@ -19,6 +19,13 @@ set context_bar [ad_context_bar $page_title]
 set format "[lc_get formbuilder_date_format], [lc_get formbuilder_time_format]"
 set user_id [ad_conn user_id]
 permission::require_permission -object_id $assessment_id -privilege read
+set dotlrn_admin_p [dotlrn::admin_p]
+
+if { !$dotlrn_admin_p } {
+    ad_return_complaint 1 "[_ anon-eval.permission_denied]"
+    ad_script_abort
+}
+
 
 # Get the assessment data
 as::assessment::data -assessment_id $assessment_id

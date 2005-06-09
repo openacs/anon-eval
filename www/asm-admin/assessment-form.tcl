@@ -25,6 +25,14 @@ if {![info exists assessment_id] || $__new_p} {
 set package_id [ad_conn package_id]
 permission::require_permission -object_id $package_id -privilege create
 
+set dotlrn_admin_p [dotlrn::admin_p]
+
+if { !$dotlrn_admin_p } {
+    ad_return_complaint 1 "[_ anon-eval.admin_permission_denied]"
+    ad_script_abort
+}
+
+
 set context [list [list index [_ assessment.admin]] $page_title]
 
 set sql_format "YYYY-MM-DD HH24:MI:SS"
