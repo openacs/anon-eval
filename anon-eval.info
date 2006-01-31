@@ -9,9 +9,11 @@
     
     <version name="0.1a" url="http://openacs.org/repository/download/apm/anon-eval-0.1a.apm">
         <owner url="mailto:annyflores@viaro.net">anny flores</owner>
-        <release-date>2005-05-26</release-date>
+        <summary>Anonymous course evaluations</summary>
+        <release-date>2006-01-31</release-date>
         <vendor>Viaro Networks</vendor>
         <description format="text/html">Anonymous Evaluations is based on the Assessment Package.</description>
+        <maturity>0</maturity>
 
         <provides url="anon-eval" version="0.1a"/>
         <requires url="assessment" version="0.10d13"/>

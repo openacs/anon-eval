@@ -191,6 +191,9 @@ ad_form -extend -name assessment_form -form {{secure_access_p:text(hidden) {valu
 	if {![empty_string_p $end_time]} {
 	    db_dml update_end_time {}
 	}
+
+	# Don't publish this revision
+	item::unpublish -item_id $assessment_id
     }
 } -edit_data {
     db_transaction {

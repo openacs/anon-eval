@@ -37,4 +37,7 @@ ad_proc -public ae::install::package_instantiate {
     content::folder::register_content_type -folder_id $folder_id -content_type {as_sessions} -include_subtypes t
     content::folder::register_content_type -folder_id $folder_id -content_type {as_section_data} -include_subtypes t
     content::folder::register_content_type -folder_id $folder_id -content_type {as_item_data} -include_subtypes t
+
+    # Grant read permission on this folder to cascade to sessions
+    permission::grant -object_id $folder_id -party_id [acs_magic_object registered_users] -privilege read
 }

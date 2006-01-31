@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>Anonymous Course Evaluations Documentation</title>
+  </head>
+  <body bgcolor=white>
+    <h2>Anonymous Course Evaluations Documentation</h2>
+    By <a href="mailto:annyflores@viaro.net">Anny Flores</a> with additions by <a href="mailto:roel@solutiongrove.com">Roel Canicula</a>
+    <hr>
+
+      <h3>Requirements</h3>
+
+      <ul>
+	<li> Admin of dotLRN course/class can create an assessment </li>
+	<li> Admin can make the assessment go live </li>
+	<li> Member of dotLRN course/class can fill out evanluation online when it is set to live </li>
+	<li> Admin of dotLRN course/class can review results of assessment </li>
+      </ul>
+
+      <h3>Design</h3>
+      <p>
+      <b>Evaluation:</B></P>
+      <P STYLE="margin-bottom: 0in; text-decoration: none">To
+	support anonymous course evaluations we will create a new package
+	based on and dependent  on the assessment package, which means that
+	we are going to use the same tables and procs of the assessment
+	package.</P>
+
+      <P STYLE="margin-bottom: 0in">In this package we will
+	create all the UI needed to create , submit and evaluate results.,
+	most of them based on the assessment  UI's.  
+      </P>
+
+      <P STYLE="margin-bottom: 0in"><U>The actors :</U></P>
+      <P STYLE="margin-bottom: 0in">Learners<BR>Instructors<BR>DotLRN-admin<BR>Programmers</P>
+      <p />
+
+      <TABLE WIDTH=576 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=114>
+	  <COL WIDTH=230>
+	    <COL WIDTH=230>
+	      <THEAD>
+		<TR>
+		  <TH COLSPAN=3 WIDTH=574 VALIGN=TOP>
+		    <P ALIGN=CENTER>DotLRN-Admin Pages</P>
+		  </TH>
+		</TR>
+	      </THEAD>
+	      <TBODY>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Page</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Description 
+		    </P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Design</P>
+		  </TD>
+		</TR>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Create Evaluation</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Several pages that will allow the dotLRN admin
+		      to create an evaluation.</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>All of this pages will be based on the entire
+		      UI of the assessment package  for the questionaire creation.</P>
+		    <P> A new option will be added to the 
+		      assessment-form.tcl page, that will allow to set this assessment
+		      as anonymous  evaluation (different from the anonymous feature
+		      that is already on assessment), and will allow to keep track of
+		      the assessments.</P>
+		  </TD>
+		</TR>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Evaluations Administration</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Administration page  that will show all the
+		      assessments that are set as anonymous evaluation, allow to create
+		      , edit and delete the assessments.</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Based on assessment administration pages but 
+		      this page will only show those assessments that are anonymous
+		      evaluations, and also access the results evaluation pages.</P>
+		  </TD>
+		</TR>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Results Evaluation</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>UI that will show the generated results.</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Based on view-results page of the assessment
+		      package, only few changes are needed, as remove the name of the
+		      user, and layout if needed.</P>
+		  </TD>
+		</TR>
+	      </TBODY>
+      </TABLE>
+	<p />
+      <TABLE WIDTH=576 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=114>
+	  <COL WIDTH=230>
+	    <COL WIDTH=230>
+	      <THEAD>
+		<TR>
+		  <TH COLSPAN=3 WIDTH=574 VALIGN=TOP>
+		    <P ALIGN=CENTER>Learners Pages</P>
+		  </TH>
+		</TR>
+	      </THEAD>
+	      <TBODY>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Page</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Description 
+		    </P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Design</P>
+		  </TD>
+		</TR>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Fill Evaluation</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>This page will be used by the learner to fill
+		      a evaluation created by a dotLRN-admin.</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>This page will be created based on the
+		      www/assessment pages.</P>
+		  </TD>
+		</TR>
+		<TR VALIGN=TOP>
+		  <TD WIDTH=114>
+		    <P>Evaluations List</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Show all the anonymous evaluations that can be
+		      responded by this user.</P>
+		  </TD>
+		  <TD WIDTH=230>
+		    <P>Same page of www/index, but it will only show
+		      the anonymous evaluations.  This page also will allow the user to
+		      edit the evaluation.</P>
+		  </TD>
+		</TR>
+	      </TBODY>
+      </TABLE>
+      <P STYLE="margin-bottom: 0in">Instructors: They won't
+	be able to perform any action.</P>
+      <P STYLE="margin-bottom: 0in">Programmers: They will
+	be able to see what user has generated a result via a query in psql. 
+	The results are going to be associated to the user, but the user name
+	is not going to be seen from the browser.</P>
+      <P STYLE="margin-bottom: 0in"><U>Notes:</U></P>
+      <UL>
+	<LI><P STYLE="margin-bottom: 0in">The Assessmet
+	    Package  allows to set an assessment as anonymous, this feature
+	    works like this:  If the assessment is set as anonymous, the subject
+	    associated with the session (generated result) will be the
+	    unregistrated user. In our case, we want to store the user_id but
+	    not show it on the browser. I think that  to  be able to set an
+	    assessment as an anonymous evaluation ,and not as an anoymous
+	    assessment, we have to add a column to the as_assessment s table or
+	    create one table to map  the anonymous evaluations. 
+	  </P>
+      </UL>
+      <UL>
+	<LI><P STYLE="margin-bottom: 0in">Also, number of
+	    tries for a user is handled by the assessment package, we dont have
+	    to add this functionality.</P>
+      </UL>      <p />
+  </body>
+</html>
