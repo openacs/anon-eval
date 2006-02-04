@@ -4,9 +4,4 @@
 
 <if @admin_p@ eq "1"><p style="text-align: right;"><a href="asm-admin/"><img src="/resources/assessment/admin.gif" border="0" alt="Administer Assessments"></a></p></if>
 
-<listtemplate name="assessments"></listtemplate>
-
-<if @sessions:rowcount@ gt 0>
-  <h3>#anon-eval.Answered_Evaluations#</h3>
-  <listtemplate name="sessions"></listtemplate>
-</if>
+<include src="/packages/ae-portlet/lib/ae-portlet-chunk" list_of_package_ids=@package_id@ />
