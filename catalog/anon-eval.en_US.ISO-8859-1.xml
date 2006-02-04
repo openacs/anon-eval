@@ -3,8 +3,11 @@
 
   <msg key="admin_message">You are not able to submit a respose for this evaluation.</msg>
   <msg key="admin_permission_denied">You don't have permission to admin Course Evaluations.</msg>
-  <msg key="Anon_Eval">Course Evaluations</msg>
-  <msg key="Anon_Eval_Administration">Course Evaluations Administration</msg>
-  <msg key="Applet">Anonymous Course Evaluations</msg>
+  <msg key="Anon_Eval">Evaluations</msg>
+  <msg key="Anon_Eval_Administration">Evaluations Administration</msg>
+  <msg key="Answered_Evaluations">Answered Evaluations</msg>
+  <msg key="Applet">Anonymous Evaluations</msg>
+  <msg key="Open_Evaluations">Open Evaluations</msg>
   <msg key="permission_denied">You don't have permission to see the results.</msg>
+  <msg key="Show_Evaluations">Show Evaluations</msg>
 </message_catalog>

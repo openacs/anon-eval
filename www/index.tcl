@@ -10,17 +10,17 @@ ad_page_contract {
     page_title:onevalue
 }
 
-set page_title "[_ assessment.Show_Assessments]"
+set page_title "[_ anon-eval.Show_Evaluations]"
 set context_bar [list]
 set package_id [ad_conn package_id]
 set folder_id [as::assessment::folder_id -package_id $package_id]
 set user_id [ad_conn user_id]
 set admin_p [permission::permission_p -privilege admin -object_id [ad_conn package_id]]
 
-if { $admin_p } {
-    ad_return_complaint 1 "[_ anon-eval.permission_denied]"
-    ad_script_abort
-}
+#if { $admin_p } {
+#    ad_return_complaint 1 "[_ anon-eval.permission_denied]"
+#    ad_script_abort
+#}
 
 # create a list with all open assessments
 template::list::create \
@@ -29,7 +29,7 @@ template::list::create \
     -key assessment_id \
     -elements {
         title {
-            label "[_ assessment.open_assessments]"
+            label "[_ anon-eval.Open_Evaluations]"
             display_template {<a href="@assessments.assessment_url@">@assessments.title@</a>}
         }
     } -main_class {

@@ -7,6 +7,6 @@
 <listtemplate name="assessments"></listtemplate>
 
 <if @sessions:rowcount@ gt 0>
-  <h3>#assessment.answered_assessments#</h3>
+  <h3>#anon-eval.Answered_Evaluations#</h3>
   <listtemplate name="sessions"></listtemplate>
 </if>

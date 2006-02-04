@@ -37,10 +37,10 @@ set return_url "$url"
 as::assessment::data -assessment_id $assessment_id
 set admin_p [permission::permission_p -privilege admin -object_id [ad_conn package_id]]
 
-if { $admin_p } {
-    ad_return_complaint 1 "[_ anon-eval.admin_message]"
-    ad_script_abort
-}
+#if { $admin_p } {
+#    ad_return_complaint 1 "[_ anon-eval.admin_message]"
+#    ad_script_abort
+#}
 
 if {![info exists assessment_data(assessment_id)]} {
     ad_return_complaint 1 "[_ assessment.Requested_assess_does]"
