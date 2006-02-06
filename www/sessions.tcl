@@ -9,7 +9,7 @@ ad_page_contract {
 } {
     assessment_id:notnull
     {subject_id:integer,optional ""}
-    admin_sessions:optional
+    {admin_sessions hide}
 } -properties {
     context_bar:onevalue
     page_title:onevalue
@@ -71,6 +71,24 @@ if {$assessment_data(survey_p) == "t"} {
 	    }
 	} -main_class {
 	    narrow
+	} \
+	-filters {
+	    assessment_id {}
+	    admin_sessions {
+		label "[_ anon-eval.lt_Display_Admin_Session]"
+		values {
+		    {"[_ acs-subsite.Show]" "show"}
+		    {"[_ acs-subsite.Hide]" "hide"}
+		}
+		where_clause {
+		    (case when :admin_sessions = 'hide'
+		     then not s.subject_id in (select grantee_id 
+					       from acs_permissions_all 
+					       where privilege = 'admin' 
+					       and object_id = :package_id)
+		     else true end)
+		}
+	    }
 	}
 } else {
     template::list::create \
@@ -95,14 +113,13 @@ if {$assessment_data(survey_p) == "t"} {
 	} \
 	-filters {
 	    assessment_id {}
-	    subject_id {}
 	    admin_sessions {
 		label "[_ anon-eval.lt_Display_Admin_Session]"
 		values {
-		    {"[_ acs-subsite.Show]" "show"}
 		    {"[_ acs-subsite.Hide]" "hide"}
+		    {"[_ acs-subsite.Show]" "show"}
 		}
-		where_clause {		    
+		where_clause {
 		    (case when :admin_sessions = 'hide'
 		     then not s.subject_id in (select grantee_id 
 					       from acs_permissions_all 
