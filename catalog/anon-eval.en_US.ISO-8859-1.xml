@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="anon-eval" package_version="0.1a" locale="en_US" charset="ISO-8859-1">
+<message_catalog package_key="anon-eval" package_version="0.1b" locale="en_US" charset="ISO-8859-1">
 
   <msg key="admin_message">You are not able to submit a respose for this evaluation.</msg>
   <msg key="admin_permission_denied">You don't have permission to admin Course Evaluations.</msg>
@@ -7,7 +7,18 @@
   <msg key="Anon_Eval_Administration">Evaluations Administration</msg>
   <msg key="Answered_Evaluations">Answered Evaluations</msg>
   <msg key="Applet">Anonymous Evaluations</msg>
+  <msg key="Edit_Evaluation">Edit Evaluation</msg>
+  <msg key="Evaluation">Evaluation</msg>
+  <msg key="lt_Create_New_Evaluation">Create New Evaluation</msg>
+  <msg key="lt_Delete_this_evaluatio">Delete this evaluation</msg>
+  <msg key="lt_Description_of_an_eva">Description of an evaluation</msg>
   <msg key="lt_Display_Admin_Session">Display Admin Sessions</msg>
+  <msg key="lt_Instructions_on_how_t">Instructions on how to use this evaluation</msg>
+  <msg key="lt_One_Evaluation_assess">One Evaluation: %assessment_data.title%</msg>
+  <msg key="lt_Start_Time_of_the_eva">Start Time of the evaluation</msg>
+  <msg key="lt_This_allows_you_to_gi">This allows you to give a special unique identifier to your evaluation, which might be a code.</msg>
+  <msg key="lt_Title_of_the_evaluati">Title of the evaluation that will be displayed</msg>
+  <msg key="New_Evaluation">New Evaluation</msg>
   <msg key="Open_Evaluations">Open Evaluations</msg>
   <msg key="permission_denied">You don't have permission to see the results.</msg>
   <msg key="Show_Evaluations">Show Evaluations</msg>

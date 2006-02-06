@@ -39,7 +39,7 @@ ad_form -name form_upload_file -action {unzip-file} -html {enctype multipart/for
     {zipfile:file {label "[_ assessment.Import_QTI_ZIP_File]"}}
 }
 
-set actions [list "[_ assessment.New_Assessment]" assessment-form "[_ assessment.New_Assessment2]"]
+set actions [list "[_ anon-eval.New_Evaluation]" assessment-form "[_ anon-eval.lt_Create_New_Evaluation]"]
 
 if {[ad_permission_p [acs_magic_object "security_context_root"] "admin"]} {
     # lappend actions "[_ assessment.Admin_catalog]" "catalog/" "[_ assessment.Admin_catalog]"

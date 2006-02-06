@@ -44,7 +44,7 @@ if { [string eq $assessment_id $value] } {
 if {[exists_and_not_null is_reg_asm_p]} {
     set p_title "[_ assessment.Reg_Assessment_title]"
 } else {
-    set p_title [_ assessment.One_Assessment_data]
+    set p_title "[_ anon-eval.lt_One_Evaluation_assess]"
 
 }
 

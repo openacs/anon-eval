@@ -13,10 +13,10 @@ ad_page_contract {
 }
 
 if {![info exists assessment_id] || $__new_p} {
-    set page_title [_ assessment.New_Assessment2]
+    set page_title "[_ anon-eval.lt_Create_New_Evaluation]"
     set s_assessment_id 0
 } else {
-    set page_title [_ assessment.Edit_Assessment]
+    set page_title "[_ anon-eval.Edit_Evaluation]"
     permission::require_permission -object_id $assessment_id -privilege admin
     set s_assessment_id 0
     db_0or1row rev_id_from_item_id {}
@@ -54,17 +54,17 @@ ad_form -name assessment_form -export permission_p -action assessment-form -form
 
 if {[info exists assessment_id]} {
     ad_form -extend -name assessment_form -form {
-	{name:text(inform) {label "#assessment.Name#"} {html {size 80 maxlength 1000}} {help_text "[_ assessment.assessment_Name_help]"}}
+	{name:text(inform) {label "#assessment.Name#"} {html {size 80 maxlength 1000}} {help_text "[_ anon-eval.lt_This_allows_you_to_gi]"}}
     }
 } else {
     ad_form -extend -name assessment_form -form {
-	{name:text,optional,nospell {label "[_ assessment.Name]"} {html {size 80 maxlength 1000}} {help_text "[_ assessment.assessment_Name_help]"}}
+	{name:text,optional,nospell {label "[_ assessment.Name]"} {html {size 80 maxlength 1000}} {help_text "[_ anon-eval.lt_This_allows_you_to_gi]"}}
     }
 }
 
 ad_form -extend -name assessment_form -form {
-    {title:text,nospell {label "[_ assessment.Title]"} {html {size 80 maxlength 1000}} {help_text "[_ assessment.as_Title_help]"}}
-    {description:text(textarea),optional {label "[_ assessment.Description]"} {html {rows 5 cols 80}} {help_text "[_ assessment.as_Description_help]"}}
+    {title:text,nospell {label "[_ assessment.Title]"} {html {size 80 maxlength 1000}} {help_text "[_ anon-eval.lt_Title_of_the_evaluati]"}}
+    {description:text(textarea),optional {label "[_ assessment.Description]"} {html {rows 5 cols 80}} {help_text "[_ anon-eval.lt_Description_of_an_eva]"}}
 }
 
 if {![empty_string_p [category_tree::get_mapped_trees $package_id]]} {
@@ -72,7 +72,7 @@ if {![empty_string_p [category_tree::get_mapped_trees $package_id]]} {
 }
 
 ad_form -extend -name assessment_form -form {
-    {instructions:text(textarea),optional {label "[_ assessment.Instructions]"} {html {rows 5 cols 80}} {help_text "[_ assessment.as_Instructions_help]"}}
+    {instructions:text(textarea),optional {label "[_ assessment.Instructions]"} {html {rows 5 cols 80}} {help_text "[_ anon-eval.lt_Instructions_on_how_t]"}}
     {run_mode:text(hidden) {value ""}}
 }
 if { !$permission_p } { 
@@ -91,7 +91,7 @@ ad_form -extend -name assessment_form -form {{secure_access_p:text(hidden) {valu
     {random_p:text(hidden) {value t}}
     {consent_page:text(hidden) {value ""}}
     {return_url:text(hidden) {value ""}}
-    {start_time:date,to_sql(sql_date),to_html(display_date),optional {label "[_ assessment.Start_Time]"} {format $form_format} {help} {help_text "[_ assessment.as_Start_Time_help]"}}
+    {start_time:date,to_sql(sql_date),to_html(display_date),optional {label "[_ assessment.Start_Time]"} {format $form_format} {help} {help_text "[_ anon-eval.lt_Start_Time_of_the_eva]"}}
     {end_time:date,to_sql(sql_date),to_html(display_date),optional {label "[_ assessment.End_Time]"} {format $form_format} {help} {help_text "[_ assessment.as_End_Time_help]"}}
     {number_tries:integer(hidden) {value 1}}
     {wait_between_tries:text(hidden) {value ""}}

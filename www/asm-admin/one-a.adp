@@ -73,7 +73,7 @@
 	
 <tr class="odd">
 	<td>#assessment.Extreme_Actions# </td>
-	<td><a href="assessment-delete?assessment_id=@assessment_id@">#assessment.Delete_this_assess#</a> #assessment.Removes_all_questio#<br>
+	<td><a href="assessment-delete?assessment_id=@assessment_id@">#anon-eval.lt_Delete_this_evaluatio#</a> #assessment.Removes_all_questio#<br>
 	<if @admin_p@ eq 1>	
 	 <if @anonymous_p@ eq t>
 	   <if @read_p@ eq 1>
