@@ -9,6 +9,7 @@ ad_page_contract {
 } {
     assessment_id:notnull
     {subject_id:integer,optional ""}
+    admin_sessions:optional
 } -properties {
     context_bar:onevalue
     page_title:onevalue
@@ -20,6 +21,7 @@ set format "[lc_get formbuilder_date_format], [lc_get formbuilder_time_format]"
 set user_id [ad_conn user_id]
 permission::require_permission -object_id $assessment_id -privilege read
 set dotlrn_admin_p [dotlrn::admin_p]
+set package_id [ad_conn package_id]
 
 if { !$dotlrn_admin_p } {
     ad_return_complaint 1 "[_ anon-eval.permission_denied]"
@@ -90,7 +92,26 @@ if {$assessment_data(survey_p) == "t"} {
 	    }
 	} -main_class {
 	    narrow
-	} 
+	} \
+	-filters {
+	    assessment_id {}
+	    subject_id {}
+	    admin_sessions {
+		label "[_ anon-eval.lt_Display_Admin_Session]"
+		values {
+		    {"[_ acs-subsite.Show]" "show"}
+		    {"[_ acs-subsite.Hide]" "hide"}
+		}
+		where_clause {		    
+		    (case when :admin_sessions = 'hide'
+		     then not s.subject_id in (select grantee_id 
+					       from acs_permissions_all 
+					       where privilege = 'admin' 
+					       and object_id = :package_id)
+		     else true end)
+		}
+	    }
+	}
 }
 
 

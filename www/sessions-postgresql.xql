@@ -18,6 +18,7 @@
 			AND s.subject_id = :subject_id
 			AND r.item_id = :assessment_id
 			and a.assessment_id = :assessment_rev_id
+			[template::list::filter_where_clauses -and -name sessions]
 			ORDER BY s.session_id desc
 		</querytext>
 	</fullquery>	
@@ -36,6 +37,7 @@
 			AND s.subject_id = p.person_id
 			AND r.item_id = :assessment_id
 			and a.assessment_id = :assessment_rev_id
+			[template::list::filter_where_clauses -and -name sessions]
 			ORDER BY s.session_id desc
 		</querytext>
 	</fullquery>	

@@ -7,6 +7,7 @@
   <msg key="Anon_Eval_Administration">Evaluations Administration</msg>
   <msg key="Answered_Evaluations">Answered Evaluations</msg>
   <msg key="Applet">Anonymous Evaluations</msg>
+  <msg key="lt_Display_Admin_Session">Display Admin Sessions</msg>
   <msg key="Open_Evaluations">Open Evaluations</msg>
   <msg key="permission_denied">You don't have permission to see the results.</msg>
   <msg key="Show_Evaluations">Show Evaluations</msg>
