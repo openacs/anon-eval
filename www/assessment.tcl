@@ -53,10 +53,8 @@ set assessment_rev_id $assessment_data(assessment_rev_id)
 if { [empty_string_p $session_id] && ! $admin_p } {
     set errors [as::assessment::check_session_conditions -assessment_id $assessment_rev_id -subject_id $user_id -password $password]
     if {![empty_string_p $errors]} {
-	if { 
 	    ad_return_complaint 1 $errors
 	    ad_script_abort
-	}
     }
 }
 
