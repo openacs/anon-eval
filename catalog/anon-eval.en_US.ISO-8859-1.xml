@@ -7,6 +7,7 @@
   <msg key="Anon_Eval_Administration">Evaluations Administration</msg>
   <msg key="Answered_Evaluations">Answered Evaluations</msg>
   <msg key="Applet">Anonymous Evaluations</msg>
+  <msg key="Are_you_sure">Are you sure?</msg>
   <msg key="Edit_Evaluation">Edit Evaluation</msg>
   <msg key="Evaluation">Evaluation</msg>
   <msg key="lt_Create_New_Evaluation">Create New Evaluation</msg>
@@ -16,8 +17,10 @@
   <msg key="lt_Instructions_on_how_t">Instructions on how to use this evaluation</msg>
   <msg key="lt_One_Evaluation_assess">One Evaluation: %assessment_data.title%</msg>
   <msg key="lt_Start_Time_of_the_eva">Start Time of the evaluation</msg>
+  <msg key="lt_There_are_responses_t">There are responses to this evaluation. Adding/editing a section or question could lead to inconsistent results.</msg>
   <msg key="lt_This_allows_you_to_gi">This allows you to give a special unique identifier to your evaluation, which might be a code.</msg>
   <msg key="lt_Title_of_the_evaluati">Title of the evaluation that will be displayed</msg>
+  <msg key="lt_Warning_There_are_res">Warning: There are responses to this evaluation</msg>
   <msg key="New_Evaluation">New Evaluation</msg>
   <msg key="Open_Evaluations">Open Evaluations</msg>
   <msg key="permission_denied">You don't have permission to see the results.</msg>

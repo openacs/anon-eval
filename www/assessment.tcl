@@ -8,7 +8,6 @@ ad_page_contract {
 } -query {
     assessment_id:integer,notnull
     {password:optional ""}
-    {session_id:integer,optional ""}
     {section_order:integer,optional ""}
     {item_order:integer,optional ""}
     {item_id ""}
@@ -24,6 +23,7 @@ set context [list $page_title]
 set section_to ""
 set item_to ""
 set url ""
+set session_id ""
 
 if { [info exists return_url] } {
     set url $return_url

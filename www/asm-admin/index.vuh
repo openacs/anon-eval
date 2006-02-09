@@ -8,4 +8,29 @@
 # @cvs-id $Id$
 
 set page [ad_conn path_info]
+
+# When adding/editing a section or question, check if the assessment has
+# sessions
+if { $page eq "section-form" || [string match "item-*" $page] } {
+    set form [rp_getform]
+
+    if { $form ne "" } {
+	set assessment_id [ns_set get $form assessment_id]
+	set override_p [ns_set get $form override_p]
+	if { $assessment_id ne "" && $override_p != 1 } {
+	    if { [db_0or1row get_sessions {
+		select 1
+		from dual
+		where exists (select *
+			      from as_sessionsi s, cr_revisions r
+			      where s.assessment_id = r.revision_id
+			      and r.item_id = :assessment_id)
+	    }] } { 
+		rp_form_put next_url [ad_return_url]
+		rp_internal_redirect warning
+	    }
+	}
+    }
+}
+
 rp_internal_redirect /packages/assessment/www/asm-admin/${page}
