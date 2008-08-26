@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<message_catalog package_key="anon-eval" package_version="0.1b" locale="en_US" charset="ISO-8859-1">
+<message_catalog package_key="anon-eval" locale="en_US" charset="ISO-8859-1">
 
   <msg key="admin_message">You are not able to submit a respose for this evaluation.</msg>
   <msg key="admin_permission_denied">You don't have permission to admin Course Evaluations.</msg>
