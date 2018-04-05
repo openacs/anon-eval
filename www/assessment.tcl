@@ -137,7 +137,7 @@ db_transaction {
 		# make sure to display correct section page
 		set item_order [expr $item_order - ($item_order % $display(num_items))]
 	    } elseif {$display(submit_answer_p) == "t"} {
-		# show whole section when picking up a seperate submit section
+		# show whole section when picking up a separate submit section
 		set item_order 0
 	    }
 	    # strip away items on previous section pages
@@ -275,14 +275,14 @@ foreach one_item $item_list {
     set submitted_p f
 
     if {$display(submit_answer_p) != "t"} {
-	# no seperate submit of each item
+	# no separate submit of each item
 	if {$assessment_data(reuse_responses_p) == "t"} {
 	    set default_value [as::item_data::get -subject_id $user_id -as_item_id $as_item_id]
 	}
 	set presentation_type [as::item_form::add_item_to_form -name show_item_form -session_id $session_id -section_id $section_id -item_id $as_item_id -default_value $default_value -required_p $required_p -random_p $assessment_data(random_p)]
 	
     } else {
-	# submit each item seperately
+	# submit each item separately
 	set default_value [as::item_data::get -subject_id $user_id -as_item_id $as_item_id -session_id $session_id]
 	if {![empty_string_p $default_value]} {
 	    # value already submitted
@@ -301,7 +301,7 @@ foreach one_item $item_list {
 	    lappend unsubmitted_list $as_item_id
 	}
 	
-	# create seperate submit form for each item
+	# create separate submit form for each item
 	ad_form -name show_item_form_$as_item_id -mode $mode -action assessment -html {enctype multipart/form-data} -export {assessment_id section_id section_order item_order password return_url} -form {
 	    {session_id:text(hidden) {value $session_id}}
 	    {item_id:text(hidden) {value $as_item_id}}
@@ -444,7 +444,7 @@ if {$display(submit_answer_p) != "t"} {
 
 } else {
 
-    # process next button in seperate submit mode
+    # process next button in separate submit mode
     set template "assessment-single-submit"
     ad_form -extend -name show_item_form -on_submit {
 	db_transaction {
